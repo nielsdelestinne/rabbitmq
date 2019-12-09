@@ -19,7 +19,7 @@ public class Sender {
         try(Connection connection = connectionFactory.newConnection();
             final Channel channel = connection.createChannel()) {
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-            String message = "Hello World!";
+            String message = "Hello World! " + (int) (Math.random() * 1000);
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
             System.out.println("[x] Sent '" + message + "'");
         } catch (TimeoutException e) {
