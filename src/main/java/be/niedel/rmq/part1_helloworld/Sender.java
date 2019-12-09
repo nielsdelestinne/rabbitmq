@@ -1,4 +1,4 @@
-package be.niedel.rmq;
+package be.niedel.rmq.part1_helloworld;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
