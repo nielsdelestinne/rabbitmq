@@ -9,6 +9,13 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
+/**
+ * By default, RabbitMQ will send each message to the next consumer (worker), in sequence.
+ * On average every consumer will get the same number of messages.
+ * This way of distributing messages is called round-robin.
+ *      Thus: in a situation with 2 workers and 1 complex task, 1 simple and again 1 complex task,
+ *          the first worker will receive both complex tasks.
+ */
 public class Worker {
 
     private static final String QUEUE_NAME = "hello";
